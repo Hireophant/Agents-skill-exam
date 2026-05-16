@@ -1,6 +1,6 @@
 ---
 name: python-latex-exam-master
-description: Common Python-to-LaTeX exam authoring style for generated math questions. Always use this common skill together with exactly one domain solver skill when Codex writes, repairs, reviews, or converts exam questions from an image, prompt, code file name, or Python generator and must preserve LaTeX/TikZ layout, house style, teacher-readable worked solutions, randomization guardrails, answer consistency, helper usage, and practical realism.
+description: Common Python-to-LaTeX exam authoring style for generated math questions. Always use this common skill together with exactly one domain solver skill when Codex writes, repairs, reviews, or converts exam questions from an image, prompt, code file name, solution-reference image, or Python generator and must preserve LaTeX/TikZ layout, house style, teacher-readable worked solutions, exact sample-solution formatting, randomization guardrails, answer consistency, helper usage, and practical realism.
 ---
 
 # Python Latex Exam Master
@@ -42,11 +42,13 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 2. Choose the single domain solver from the signals above.
 3. Read the matching domain playbook from that solver folder.
 4. Read only the common reference files below that are needed for the task.
-5. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
-6. Separate exact computation values from display strings.
-7. Add randomization guardrails before composing the statement.
-8. Generate statement, answer key, worked solution, and figures from the same canonical variables.
-9. Inspect generated `.tex` after nontrivial edits, especially around `itemchoice`, `minipage`, TikZ, and forced line breaks.
+5. Extract any user-specific overrides, such as which numbers to randomize, which values to keep fixed, required ranges, rounding, wording, figure layout, or solution-reference formatting.
+6. Apply user-specific overrides first for the exact parts the user specified; use the skill only as the fallback for unspecified parts.
+7. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
+8. Separate exact computation values from display strings.
+9. Add randomization guardrails before composing the statement.
+10. Generate statement, answer key, worked solution, and figures from the same canonical variables.
+11. Inspect generated `.tex` after nontrivial edits, especially around `itemchoice`, `minipage`, TikZ, and forced line breaks.
 
 ## Common References
 
@@ -57,6 +59,7 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 
 ## Non-Negotiables
 
+- User instructions override the skill for the exact parts the user specifies. If the user says which numbers to randomize, which values to keep fixed, what range to use, how to round, or what format/style to follow, obey that local instruction first. Use the skill rules only for parts the user did not specify.
 - Never reuse a formatted display string as a numeric input.
 - Never trust a Python diff alone for a layout fix; inspect generated `.tex`.
 - Keep statement, answer, solution, and figure labels tied to one source of truth.
@@ -70,6 +73,8 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 ## House Style
 
 Preserve the user's approved rhythm. If a sample uses `Ta co`, `Ma`, `Do do`, `Suy ra`, `Vay`, bracket labels, specific integral notation, or no trailing punctuation in TF statements, keep that pattern.
+
+If the user provides a solution-reference image, treat it as a strict formatting contract. Reproduce the same presentation order, line breaks, calculation steps, notation, alignment style, wording rhythm, and conclusion style as closely as LaTeX allows. Do not add extra explanations, delete intermediate steps, reorder calculations, simplify the solution structure, change the solving route, or "improve" the presentation unless the user explicitly asks for that. If the reference solution contains a mathematical error, state the error clearly and then preserve the same presentation style while correcting only the necessary mathematical content.
 
 Use concise teacher chains. For easy subparts, one clean line is often better than a long derivation. For harder SA/optimization/geometry items, include the reason that makes the chosen case valid.
 
