@@ -1,0 +1,96 @@
+---
+name: python-latex-exam-master
+description: Common Python-to-LaTeX exam authoring style for generated math questions. Always use this common skill together with exactly one domain solver skill when Codex writes, repairs, reviews, or converts exam questions from an image, prompt, code file name, or Python generator and must preserve LaTeX/TikZ layout, house style, teacher-readable worked solutions, randomization guardrails, answer consistency, helper usage, and practical realism.
+---
+
+# Python Latex Exam Master
+
+## Role
+
+This is the default common skill. It contains only shared presentation, LaTeX, randomization, and generator-quality rules.
+
+For mathematical strategy, also load exactly one domain solver skill:
+
+- `python-latex-exam-ds-solver` for DS/dai so/algebra/discrete math.
+- `python-latex-exam-gt-solver` for GT/giai tich/calculus/analysis.
+- `python-latex-exam-hh-co-dien-solver` for HH co dien/synthetic geometry.
+- `python-latex-exam-hh-gan-truc-solver` for HH gan truc/Oxyz/coordinate geometry.
+- `python-latex-exam-sp-xac-suat-co-dien-solver` for SP xac suat co dien/classical probability.
+- `python-latex-exam-sp-xac-suat-co-dieu-kien-solver` for SP xac suat co dieu kien/conditional probability.
+
+Do not load multiple domain solvers unless the user explicitly asks to compare or classify multiple mixed questions.
+
+## Choosing The Domain Solver
+
+When the user sends an image, a question stem, a code file, or only a file name, first infer the domain from the strongest signal:
+
+1. Path or folder names such as `DS`, `GT`, `HH`, `hinh-hoc-co-dien`, `hinh-hoc-gan-truc`, `Oxyz`, `SP`, `xac-suat-co-dien`, `xac-suat-co-dieu-kien`.
+2. File/code names such as `DS...MC`, `GT...TF`, `HH...SA`, `SP...TF`.
+3. Problem vocabulary in the image/stem:
+   - DS: logarithms, inequalities, sequences, feasible regions, investment, compound interest, algebraic/discrete constraints.
+   - GT: function graphs, derivatives, monotonicity, extrema, integrals, exponential/log models, optimization, motion/economics.
+   - HH co dien: pyramids, prisms, tetrahedra, projections, section points, synthetic solid geometry without coordinates.
+   - HH gan truc/Oxyz: coordinates, vectors, planes, lines, spheres, distances/angles in `Oxyz`, practical 3D coordinate models.
+   - SP co dien: finite sample spaces, cards, dice, balls, counting favorable outcomes, combinations, independence.
+   - SP co dieu kien: `P(A|B)`, probability trees, Bayes, total probability, tests/diagnostics, sensitivity/specificity, conditional counting.
+
+After choosing the solver, read only that solver's `SKILL.md` and its local `references/` file matching MC/TF/SA. Do not read unrelated solver folders.
+
+## Common Workflow
+
+1. Classify the output type: MC, TF, SA, or another fixed structure.
+2. Choose the single domain solver from the signals above.
+3. Read the matching domain playbook from that solver folder.
+4. Read only the common reference files below that are needed for the task.
+5. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
+6. Separate exact computation values from display strings.
+7. Add randomization guardrails before composing the statement.
+8. Generate statement, answer key, worked solution, and figures from the same canonical variables.
+9. Inspect generated `.tex` after nontrivial edits, especially around `itemchoice`, `minipage`, TikZ, and forced line breaks.
+
+## Common References
+
+- Read [question-types-and-templates.md](./references/question-types-and-templates.md) for MC, TF, SA output skeletons and local helper patterns.
+- Read [generator-randomization-and-consistency.md](./references/generator-randomization-and-consistency.md) for random parameters, exact-vs-display values, rounding, answer consistency, and hidden constraints.
+- Read [authoring-style-and-feedback.md](./references/authoring-style-and-feedback.md) for teacher-style explanation, house wording, layout fidelity, and handling user/teacher feedback.
+- Read [latex-tikz-output-checklist.md](./references/latex-tikz-output-checklist.md) for LaTeX/TikZ compile errors, generated `.tex` inspection, `minipage`, integral notation, and figure placement.
+
+## Non-Negotiables
+
+- Never reuse a formatted display string as a numeric input.
+- Never trust a Python diff alone for a layout fix; inspect generated `.tex`.
+- Keep statement, answer, solution, and figure labels tied to one source of truth.
+- Keep TF false statements plausible and parallel, not cartoonishly wrong.
+- Keep SA final answers aligned with the requested precision and unit.
+- Do not round intermediate values unless the statement explicitly allows it.
+- Do not use `int(...)` to fake a one-decimal answer; use the local display helper such as `lam_tron(value, digits)`.
+- Add `while True` guardrails for invalid domains, ugly values, repeated options, impossible figures, non-realistic units, and wrong answers that collapse to the correct one after rounding.
+- For practical contexts, reject physically silly outputs unless the story explicitly supports them.
+
+## House Style
+
+Preserve the user's approved rhythm. If a sample uses `Ta co`, `Ma`, `Do do`, `Suy ra`, `Vay`, bracket labels, specific integral notation, or no trailing punctuation in TF statements, keep that pattern.
+
+Use concise teacher chains. For easy subparts, one clean line is often better than a long derivation. For harder SA/optimization/geometry items, include the reason that makes the chosen case valid.
+
+For figures, do not change the layout contract. Use `minipage` only when the sample places the figure beside the text. For figure-below-text layouts, prefer paragraph breaks such as `\par\noindent` over unsafe standalone `\\`.
+
+## Helper Habits
+
+- Use `tinh_latex(expr)` for Sympy expressions.
+- Use `tinh_latex(expr, Expand=True)` only when expanded classroom output is preferred.
+- Treat `lam_tron()` output as display-first.
+- Pair rounded-answer generation with `kiem_tra_lam_tron(...)` when the local bank expects compact formatting.
+- Keep money, units, coordinates, and decimal commas consistent with the existing file.
+- Prefer small formatting helpers over repeated nested f-strings for sensitive solution lines.
+
+## Final Check
+
+Before finishing, verify:
+
+- math logic is valid on the actual domain
+- random values satisfy every hidden constraint
+- displayed units match computed units
+- all options/statements remain distinct after formatting
+- LaTeX compiles or the generated `.tex` block is inspected
+- figure labels, bounds, answers, and explanations match
