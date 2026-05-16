@@ -2,7 +2,13 @@
 
 Bộ skill này giúp agent soạn đề, giải đề, sửa đề, review logic và chuyển bài toán thành generator Python-LaTeX theo đúng phong cách đề đã có sẵn.
 
-Điểm quan trọng nhất: nếu muốn lời giải đúng ý, hãy gửi **ảnh đề** và nếu có thì gửi thêm **ảnh lời giải mẫu**. Ảnh lời giải mẫu có thể là viết tay, đánh máy, ảnh chụp PDF, ảnh chụp vở, hoặc đoạn LaTeX/Python cũ. Agent sẽ dùng ảnh lời giải mẫu để bắt đúng nhịp trình bày, độ chi tiết, cách đặt biến, cách xuống dòng và kiểu giải thích.
+## Nên Gửi Kèm Lời Giải Mẫu
+
+Nếu muốn lời giải đúng chuẩn và đúng ý, hãy gửi **ảnh đề** kèm **ảnh lời giải mẫu** ngay từ đầu.
+
+Ảnh lời giải mẫu có thể là viết tay, đánh máy, ảnh chụp PDF, ảnh chụp vở, hoặc đoạn LaTeX/Python cũ. Agent sẽ dùng ảnh lời giải mẫu để bắt đúng nhịp trình bày, độ chi tiết, cách đặt biến, cách xuống dòng, thứ tự phép tính và kiểu kết luận.
+
+Nếu có ảnh lời giải mẫu, agent phải bám theo cách trình bày đó; không tự thêm bước, xóa bước, đổi thứ tự tính toán hoặc đổi format nếu người dùng không yêu cầu.
 
 ## Mục Tiêu
 
@@ -276,6 +282,7 @@ Output tốt cần đảm bảo:
 ## Nguyên Tắc Quan Trọng
 
 - Master là mặc định chung, solver là chuyên môn từng dạng.
+- Agent có thể tự lấy skill phù hợp ra dùng mà không cần người dùng nhắc tên skill (miễn là agent đang được mở trong đúng folder project chứa `.agents`, và đề bài/mã câu/tên file có đủ tín hiệu để nhận dạng dạng bài).
 - Mỗi lần làm bài nên dùng đúng một solver chính, tránh đọc nhiều folder không liên quan.
 - Nếu dạng bài chưa có reference mẫu, không tự giả vờ như đã có kinh nghiệm cũ.
 - Nếu đề bài thực tế cho ra giá trị phi thực tế, phải thêm guardrail random hoặc sửa mô hình.
