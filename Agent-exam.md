@@ -2,13 +2,30 @@
 
 Bộ skill này giúp agent soạn đề, giải đề, sửa đề, review logic và chuyển bài toán thành generator Python-LaTeX theo đúng phong cách đề đã có sẵn.
 
-## Nên Gửi Kèm Lời Giải Mẫu
+## Input Nên Gửi
 
+Input tốt nhất nên có:
+
+- Ảnh đề bài.
+- Ảnh lời giải mẫu hoặc lời giải mong muốn, nếu có.
+- Mã câu, ví dụ `DS...MC`, `GT...TF`, `HH...SA`, `SP...TF`.
+- Tên file đích cần code, thường là `<id-câu>.py`, ví dụ `GT254MC012.py`.
+- Folder dạng bài, ví dụ `old_file_new/GT/MC`.
+- File Python cần sửa, nếu đang sửa code.
+- Dạng output: MC, TF, SA.
+- Quy tắc làm tròn, đơn vị, số mẫu cần random.
+- Yêu cầu random cụ thể, ví dụ số nào trên đề được random, số nào phải giữ cố định, random trong khoảng nào, cần số nguyên hay phân số, cần đáp án đẹp hay có làm tròn.
+- Yêu cầu riêng khác, ví dụ giữ nguyên cách đặt biến, bắt buộc dùng một công thức, không đổi hình, không thêm bước giải, hoặc phải bám đúng ảnh lời giải mẫu.
+- Feedback của giáo viên hoặc lỗi cần phản biện.
+
+**Lưu ý quan trọng về lời giải mẫu:**
 Nếu muốn lời giải đúng chuẩn và đúng ý, hãy gửi **ảnh đề** kèm **ảnh lời giải mẫu** ngay từ đầu.
-
 Ảnh lời giải mẫu có thể là viết tay, đánh máy, ảnh chụp PDF, ảnh chụp vở, hoặc đoạn LaTeX/Python cũ. Agent sẽ dùng ảnh lời giải mẫu để bắt đúng nhịp trình bày, độ chi tiết, cách đặt biến, cách xuống dòng, thứ tự phép tính và kiểu kết luận.
-
 Nếu có ảnh lời giải mẫu, agent phải bám theo cách trình bày đó; không tự thêm bước, xóa bước, đổi thứ tự tính toán hoặc đổi format nếu người dùng không yêu cầu.
+
+Nếu chỉ có ảnh đề, agent vẫn có thể tự nhận dạng dạng bài. Nhưng nếu cần lời giải đúng phong cách của bạn, nên gửi thêm ảnh lời giải mẫu.
+
+Nếu người dùng không nói rõ random số nào hoặc yêu cầu riêng nào, agent sẽ tự chọn cách random theo skill, dùng guardrail hiện có để giữ đề hợp lí, đáp án đúng, phương án không trùng và lời giải dễ đọc.
 
 ## Mục Tiêu
 
@@ -185,26 +202,6 @@ Sau khi cập nhật xong, hãy liệt kê rõ:
 
 Mình sẽ tự đọc review lại nội dung skill sau đó, nên đừng chỉ báo "xong"; hãy cho đường dẫn file đã sửa để kiểm tra.
 ```
-
-## Input Nên Gửi
-
-Input tốt nhất nên có:
-
-- Ảnh đề bài.
-- Ảnh lời giải mẫu hoặc lời giải mong muốn, nếu có.
-- Mã câu, ví dụ `DS...MC`, `GT...TF`, `HH...SA`, `SP...TF`.
-- Tên file đích cần code, thường là `<id-câu>.py`, ví dụ `GT254MC012.py`.
-- Folder dạng bài, ví dụ `old_file_new/GT/MC`.
-- File Python cần sửa, nếu đang sửa code.
-- Dạng output: MC, TF, SA.
-- Quy tắc làm tròn, đơn vị, số mẫu cần random.
-- Yêu cầu random cụ thể, ví dụ số nào trên đề được random, số nào phải giữ cố định, random trong khoảng nào, cần số nguyên hay phân số, cần đáp án đẹp hay có làm tròn.
-- Yêu cầu riêng khác, ví dụ giữ nguyên cách đặt biến, bắt buộc dùng một công thức, không đổi hình, không thêm bước giải, hoặc phải bám đúng ảnh lời giải mẫu.
-- Feedback của giáo viên hoặc lỗi cần phản biện.
-
-Nếu chỉ có ảnh đề, agent vẫn có thể tự nhận dạng dạng bài. Nhưng nếu cần lời giải đúng phong cách của bạn, nên gửi thêm ảnh lời giải mẫu.
-
-Nếu người dùng không nói rõ random số nào hoặc yêu cầu riêng nào, agent sẽ tự chọn cách random theo skill, dùng guardrail hiện có để giữ đề hợp lí, đáp án đúng, phương án không trùng và lời giải dễ đọc.
 
 ## Cách Prompt Nên Dùng
 
