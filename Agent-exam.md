@@ -193,6 +193,7 @@ Input tốt nhất nên có:
 - Ảnh đề bài.
 - Ảnh lời giải mẫu hoặc lời giải mong muốn, nếu có.
 - Mã câu, ví dụ `DS...MC`, `GT...TF`, `HH...SA`, `SP...TF`.
+- Tên file đích cần code, thường là `<id-câu>.py`, ví dụ `GT254MC012.py`.
 - Folder dạng bài, ví dụ `old_file_new/GT/MC`.
 - File Python cần sửa, nếu đang sửa code.
 - Dạng output: MC, TF, SA.
@@ -216,6 +217,7 @@ cd <duong-dan-project>\ThanhDanh
 Hãy tạo generator Python-LaTeX cho câu này.
 Dạng: GT/MC.
 Mã câu: GT254MC012.
+Code vào file: GT254MC012.py.
 Input gồm ảnh đề và ảnh lời giải mẫu.
 Yêu cầu: bám cách trình bày trong ảnh lời giải, random hợp lí, đáp án không trùng.
 ```
@@ -226,6 +228,7 @@ Ví dụ có yêu cầu random cụ thể:
 Hãy tạo generator Python-LaTeX cho câu này.
 Dạng: HH/Oxyz/SA.
 Mã câu: HH254SA012.
+Code vào file: HH254SA012.py.
 Random các tọa độ điểm A, B, C nhưng giữ chiều cao là số nguyên từ 3 đến 8.
 Khoảng cách cuối cùng làm tròn đến 1 chữ số thập phân.
 Không đổi cách trình bày lời giải trong ảnh mẫu.
