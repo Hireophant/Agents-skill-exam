@@ -25,11 +25,7 @@ Start inside your project folder, for example `ThanhDanh`.
 cd <project>
 ```
 
-Create `.agents`:
-
-```powershell
-New-Item -ItemType Directory -Force -Path ".agents"
-```
+Create a folder named `.agents` inside the project.
 
 Clone this repository into `.agents`:
 
