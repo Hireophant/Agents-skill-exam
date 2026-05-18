@@ -33,6 +33,16 @@ Random data must make the story believable.
 - If a statement compares with a threshold, choose the threshold on the correct side of the exact value and far enough from rounding ambiguity.
 - For real money, if the exact value is not an integer, state the practical rounded/ceiling value explicitly.
 
+## Limit And Threshold Statements
+
+For applied concentration, production, temperature, or long-run GT questions, separate the limiting value from finite-time values.
+
+- If `f(t)` is increasing and `f(t) -> L` from below, then a rule "khong vuot qua L" can still allow long-run production; the statement "khong the san xuat lien tuc" is false at `L` or above.
+- To make a true "khong the san xuat lien tuc" statement, use a threshold strictly below the limit.
+- To make a false "khong the san xuat lien tuc" statement, use `L` or preferably `L+1` when values are integer and the wording should be unambiguous.
+- If the user asks the true statement to use exactly the limiting value, change the conclusion to "co the san xuat lien tuc" and keep the false statement as `L+1` with the wrong "khong the" conclusion.
+- In the worked solution, avoid vague `Vi threshold < L` wording when the conclusion depends on a limit convention; write `Khi t -> +infty ... Vay voi tieu chuan ...` so the conclusion matches the statement exactly.
+
 ## Code Pattern
 
 Use named statement variables:

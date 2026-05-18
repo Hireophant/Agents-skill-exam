@@ -83,7 +83,8 @@ For figures, do not change the layout contract. Use `minipage` only when the sam
 ## Helper Habits
 
 - Use `tinh_latex(expr)` for Sympy expressions.
-- Use `tinh_latex(expr, Expand=True)` only when expanded classroom output is preferred.
+- By default, display algebraic expressions in expanded classroom form unless the user explicitly asks for factored, simplified, or compact form. Prefer `tinh_latex(expr, Expand=True)` and, for rational models, build `\dfrac{expanded numerator}{expanded denominator}` from the canonical numerator and denominator instead of letting Sympy factor common constants.
+- For TF generators, do not assume the false-statement solution is just the true-statement solution with the final label changed. If a false variant changes a threshold, value, condition, or conclusion, write a separate false solution for that variant or implement local TF assembly instead of relying on a helper that only accepts `LGtrue`.
 - Treat `lam_tron()` output as display-first.
 - Pair rounded-answer generation with `kiem_tra_lam_tron(...)` when the local bank expects compact formatting.
 - Keep money, units, coordinates, and decimal commas consistent with the existing file.
@@ -97,5 +98,6 @@ Before finishing, verify:
 - random values satisfy every hidden constraint
 - displayed units match computed units
 - all options/statements remain distinct after formatting
+- true/false statement variants use the same mathematical side of the threshold as their worked solutions
 - LaTeX compiles or the generated `.tex` block is inspected
 - figure labels, bounds, answers, and explanations match
