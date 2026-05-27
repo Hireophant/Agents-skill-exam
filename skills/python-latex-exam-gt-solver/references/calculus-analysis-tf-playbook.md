@@ -42,6 +42,11 @@ For applied concentration, production, temperature, or long-run GT questions, se
 - To make a false "khong the san xuat lien tuc" statement, use `L` or preferably `L+1` when values are integer and the wording should be unambiguous.
 - If the user asks the true statement to use exactly the limiting value, change the conclusion to "co the san xuat lien tuc" and keep the false statement as `L+1` with the wrong "khong the" conclusion.
 - In the worked solution, avoid vague `Vi threshold < L` wording when the conclusion depends on a limit convention; write `Khi t -> +infty ... Vay voi tieu chuan ...` so the conclusion matches the statement exactly.
+- For concentration models, define concentration in the statement before using the function: mention that dissolved sugar does not significantly change the water volume when that assumption matters, then write `f(t)=...` with the intended domain.
+- Order concentration TF statements as setup/model first, then function behavior, then applied threshold conclusion. Do not test monotonicity before defining the concentration function.
+- Avoid vague phrases such as "thoi gian dai"; use a concrete production/process phrase such as "trong thoi gian san xuat" or "trong suot qua trinh ...".
+- Keep thresholds randomized from the model: use the generated limit `L` for the true "luon nho hon L" conclusion and `L+1` for a false "co thoi diem dat hon L+1" conclusion when `L` is an integer.
+- If an earlier statement has already proved monotonicity on `t>0`, cite it in the later threshold solution (`Theo y c...`) instead of repeating the derivative calculation.
 
 ## Code Pattern
 

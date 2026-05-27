@@ -61,6 +61,9 @@ Structure:
 - four true candidates and four matched false variants
 - true and false variants similar in length, tone, notation, and unit
 - `LGtrue` explanations in the same order as the statements
+- use the local `format_output_TFquestion(...)` template for the final assembly; fill only `PAtrue`, `PAfalse`, `LGtrue`, and `debai`
+- do not hand-build `\choiceTFt`, `itemchoice`, QC display, or true/false labels unless the user explicitly asks for behavior the helper cannot express
+- if a false variant tempts a custom false solution, first check whether the normal `LGtrue` explanation plus helper label is acceptable for this bank; preserve the template unless the user requests custom false-solution handling
 
 Skeleton:
 
@@ -126,4 +129,3 @@ for i in range(socau):
     cauhoi += "\n"
     nganhang.append(cauhoi)
 ```
-

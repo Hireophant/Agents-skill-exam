@@ -73,6 +73,16 @@ L_2-L_1=2\log\frac{R_1}{R_2}
 - Make monotonic direction realistic: farther seats should not have higher sound level when the source and seats are collinear away from the source.
 - Keep the requested seat strictly between the first and last seats.
 
+## Trigonometric Application Models
+
+Use for rotating wheels, buckets, periodic height/distance models, or first-time questions.
+
+- If the stem asks for the first occurrence after a starting time, say it explicitly: "Ke tu thoi diem x=0 ... sau bao nhieu phut?"
+- For `h=|y|`, solve both cases in the same presentation rhythm unless the user explicitly wants a geometric shortcut: `y=h` and `y=-h`.
+- When the negative case is impossible but the expected style is computational, show the substitution through the sine equation, for example `sin(...)= -2d/R`, then conclude no solution because the value is outside `[-1,1]`.
+- To find the first valid time, solve the general solution, impose `x>=0`, derive the integer condition on `k`, then choose the smallest integer `k`; do not rely on ad hoc listing unless the sample solution does.
+- Keep the conclusion aligned with the stem: if the stem asks "sau bao nhieu phut", end with "sau ... phut", not only "vao thoi diem x=...".
+
 ## Randomization Guardrails
 
 Use `while True` when any of these can fail:

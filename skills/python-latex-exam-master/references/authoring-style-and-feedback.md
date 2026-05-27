@@ -60,7 +60,9 @@ Treat approved screenshots and teacher corrections as layout contracts.
 Treat teacher feedback as a regression test.
 
 - Patch the named issue first; do not rewrite the whole generator unless needed.
+- Preserve the teacher's requested presentation level. If feedback says to keep the old presentation or "trinh bay nhu cu", restore the old calculation rhythm and line structure, not only the mathematical conclusion.
+- Do not over-compress a solution after a wording QC unless the teacher explicitly asks for a shortcut. A "nhan xet" request may still expect the same algebraic presentation with a shorter conclusion.
+- When a QC suggests an example number such as `40/41`, decide whether it is a fixed requirement or a pattern (`L/L+1`) from the random model before changing randomization.
 - Run the generator after nontrivial edits.
 - Inspect the generated `.tex` around the edited block, especially for `itemchoice`, `minipage`, TikZ blocks, and forced line breaks.
 - Compile when possible before reporting completion.
-
