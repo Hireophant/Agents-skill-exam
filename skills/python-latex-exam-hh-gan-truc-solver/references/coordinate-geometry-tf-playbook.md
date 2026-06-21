@@ -61,6 +61,12 @@ For practical conclusions, name the condition:
 - "Vi z_H nam trong khoang [h0;h_top] ..."
 - "Vi vec v nguoc huong vec u nen vec v = k vec u, k<0 ..."
 
+For coordinate-midpoint or figure-reading statements:
+
+- Use the user's approved bracket-coordinate rhythm when present, for example `[I]=\dfrac{[M']+[N']}{2}`.
+- If the solution needs a supporting 2D cross-section sketch, draw only the relevant section and omit labels that are not used in the calculation.
+- Keep helper point names consistent between the figure and solution. If a point is actually `M`, do not introduce an extra `H` just for a right-angle foot.
+
 ## Code structure
 
 - Build `PAtrue1..4`, `PAfalse1..4`, and `LGPAtrue1..4` from the same canonical variables.
@@ -75,4 +81,3 @@ For practical conclusions, name the condition:
 - explaining the false statement instead of the true paired statement
 - using a rounded value to decide a geometric inequality
 - generating a story where the object crosses the plane behind the starting point
-

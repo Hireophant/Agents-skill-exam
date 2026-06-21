@@ -37,6 +37,10 @@ f"\\displaystyle \\int \\limits_{{{a}}}^{{{b}}} \\left[f(x)\\right]^2\\,\\mathrm
 5. Fill shaded regions fully to the intended boundary or axis.
 6. If a single fill path leaves a visual gap, split the fill into multiple same-style subregions.
 7. Make illustrative figures visually credible: collinear points should look collinear, projections should sit on intended lines, and midpoint labels should sit on intended segments.
+8. After moving points, re-check every point that should lie on an edge actually uses interpolation on that edge, not a nearby free coordinate.
+9. For labels on opposite sides of a figure, set anchors deliberately (`left`, `right`, `above`, `below`) instead of relying on default placement; this prevents text such as repeated `x` labels from colliding with edges.
+10. If two projected points share the same coordinate value on an axis, show the value once, not twice on top of itself.
+11. Do not color helper faces or extra regions in the stem figure unless the reference image does; reserve extra shading/annotations for the solution figure.
 
 ## Generated `.tex` check
 
@@ -48,4 +52,3 @@ Look for:
 - `minipage` widths or scales that make a figure drop below its partner
 - helper wrappers injecting `\par`, `\noindent`, or `\\`
 - Python code that looks correct but expands into a different classroom layout
-

@@ -83,6 +83,9 @@ For practical problems, prefer moderate numbers over dramatic values unless the 
 - Use `\cdot` for multiplication in algebraic cost/volume lines when matching the local style.
 - Keep one displayed formula per major transition.
 - End with a sentence that answers the exact question and unit.
+- For real-object figures such as a crane, car frame, tank, or logo, prioritize the reference silhouette and mathematically important labels over decorative details. Remove clutter such as fences or extra fills if they make the target object harder to read.
+- If the solution uses an abstracted geometric model, draw the clean model there and keep it consistent with the force/coordinate notation in the calculation.
+- When final answers are rounded, include the stem's requested rounding phrase and use `\approx` only in the final rounded line; keep exact expressions earlier.
 
 ## Code habits
 
@@ -91,4 +94,3 @@ For practical problems, prefer moderate numbers over dramatic values unless the 
 - Use `tinh_latex` for Sympy expressions and direct strings for final display values.
 - Build helper functions for repeated formatting such as money, coordinates, or degree-minute parsing.
 - Run sample generation after edits and inspect the generated `.tex`.
-

@@ -80,6 +80,14 @@ Use concise teacher chains. For easy subparts, one clean line is often better th
 
 For figures, do not change the layout contract. Use `minipage` only when the sample places the figure beside the text. For figure-below-text layouts, prefer paragraph breaks such as `\par\noindent` over unsafe standalone `\\`.
 
+## Recent QC Lessons
+
+- Treat user/teacher QC as a narrow patch unless the model is wrong. If the QC says "chi sua phan tren hinh", "de giu nhu cu", or "trinh bay nhu cu", edit only that region and keep the old solving route, line breaks, and calculation depth.
+- When a reference image is supplied, match wording additions exactly in the stem rather than replacing the old sentence; for example add clarifying phrases such as "nhu hinh ve" while preserving the randomized angle or data.
+- For SA rounding text, use the local house wording from the templates and round only the final requested quantity. In the solution, use `=` for exact integer/exact symbolic results and `\approx` only when a rounded display is genuinely needed.
+- For midpoint/vector-coordinate notation already approved by the user, preserve bracket style such as `[I]=\dfrac{[M]+[N]}{2}` instead of silently switching to tuple-only notation.
+- For visual tasks, make a stem figure and a solution figure serve different roles: the stem figure should stay clean and close to the sample; the solution figure may add axes, projections, helper labels, or calculation marks.
+
 ## Helper Habits
 
 - Use `tinh_latex(expr)` for Sympy expressions.

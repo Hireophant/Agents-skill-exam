@@ -33,3 +33,7 @@ Use this skill for geometry problems where a coordinate system, Oxyz model, vect
 - Keep line, plane, vector, and distance formulas tied to one canonical set of points.
 - For TF, make four statements test different layers: coordinates, equation, distance/angle, and practical conclusion.
 - For SA, justify the coordinate setup before optimizing or rounding.
+- When a QC image fixes a 3D orientation, rebuild the TikZ point coordinates from the pictured incidences: if a point must lie on an edge, define it by interpolation on that edge; if a face must be a parallelogram/horizontal-looking section, make opposite sides parallel in the projected drawing.
+- Keep stem figures visually close to the reference and avoid unnecessary helper fills. Put axes, projection marks, midpoint sketches, and calculation aids in the solution figure unless the stem explicitly asks for them.
+- Place labels with explicit anchors based on side: left-edge labels use `left`, right-edge labels use `right`, top labels use `above`, and move crowded labels such as `A'`, `M'`, `P'` only enough to avoid overlapping edges.
+- If the problem says an object is inclined "as shown", keep the randomized angle but include the phrase in the stem so the direction of inclination is fixed by the figure.

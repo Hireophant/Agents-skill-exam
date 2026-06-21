@@ -30,3 +30,6 @@ Use this skill for classical geometry items solved by synthetic properties rathe
 - Keep figure labels visually credible and consistent with the solution.
 - For MC, make distractors nearby geometry mistakes, not random numbers.
 - For SA, show the reduction step before substituting values.
+- For vector statements in regular solids, keep midpoint/parallel-vector arguments explicit before computing dot products or angles.
+- Match the reference figure's visible/hidden edges deliberately. Do not leave an edge dashed from an old template if the reference or QC requires it to be solid.
+- When a teacher supplies handwritten solution steps, preserve that order of reasoning instead of replacing it with a coordinate or overly compressed proof.

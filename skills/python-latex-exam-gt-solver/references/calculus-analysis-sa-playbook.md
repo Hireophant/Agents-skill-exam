@@ -61,6 +61,13 @@ For Newton cooling, population growth, radioactive decay, or exponential models:
 
 Avoid physically odd data: cooling should move toward ambient temperature, populations should be positive and bounded if the model says so, and requested times should be reasonable.
 
+For logistic growth items:
+
+- Choose carrying capacity, initial value, and time scale in realistic units for the story. For plant-height models, heights in centimeters and month-based times should stay believable for a crop/plant over the stated number of months.
+- When the question asks for the value of the modeled quantity at the time of maximum growth rate, solve the maximum of `f'(t)` but answer with `f(t)`, not with the time or the maximum rate unless explicitly asked.
+- The logistic inflection condition can be shown by AM-GM/Cauchy or derivative analysis; preserve the reference solution route if the user supplies one.
+- If `f(t*)` is exact, conclude with `=`. If the final requested value needs rounding, add a separate `\approx lam_tron(..., digits)` display only at the end.
+
 ## LaTeX And Human Presentation
 
 The solution should read like a teacher explaining to a student:
