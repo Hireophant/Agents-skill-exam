@@ -1,4 +1,7 @@
 # Coordinate Geometry SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 ## Purpose
 
@@ -8,11 +11,10 @@ Use this file when writing, repairing, or reviewing HH gan-truc-giai short-answe
 
 Good SA items follow this arc:
 
-1. choose or explain a coordinate system
-2. translate the object into points, vectors, planes, or spheres
-3. derive the target quantity on the valid domain
-4. apply the real-world unit conversion or cost/time interpretation
-5. round only the final answer
+1. analyze why a coordinate setup or geometric model is useful
+2. choose or explain the coordinate system and set variables with conditions
+3. translate the object into points, vectors, planes, or spheres, then derive the target quantity on the valid domain
+4. check the conditions, apply the real-world unit conversion or cost/time interpretation, round only the final answer, and conclude with a boxed answer
 
 Examples include roof thickness and cost, radar coverage, Earth great-circle distance, ants moving on a pyramid, distance from a point to a plane, and volume after assigning coordinates.
 
@@ -86,6 +88,7 @@ For practical problems, prefer moderate numbers over dramatic values unless the 
 - For real-object figures such as a crane, car frame, tank, or logo, prioritize the reference silhouette and mathematically important labels over decorative details. Remove clutter such as fences or extra fills if they make the target object harder to read.
 - If the solution uses an abstracted geometric model, draw the clean model there and keep it consistent with the force/coordinate notation in the calculation.
 - When final answers are rounded, include the stem's requested rounding phrase and use `\approx` only in the final rounded line; keep exact expressions earlier.
+- When the final real-world answer is a whole count, such as number of units, sheets, cans, or trips, word the stem as a minimum-count question and use `ceil` rather than ordinary rounding.
 
 ## Code habits
 

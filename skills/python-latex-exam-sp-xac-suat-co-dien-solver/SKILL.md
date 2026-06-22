@@ -7,7 +7,7 @@ description: SP xac suat co dien solver for Python-LaTeX exam questions. Use wit
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and house-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, house-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -19,7 +19,7 @@ Use this skill for classical probability items based on finite sample spaces and
 2. Read only the matching local playbook:
    - TF: [classical-probability-tf-playbook.md](./references/classical-probability-tf-playbook.md)
    - SA: [classical-probability-sa-playbook.md](./references/classical-probability-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. State the sample space and favorable event before computing.
 5. Count by cases or complement only when the cases are disjoint and complete.
 

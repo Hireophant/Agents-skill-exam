@@ -1,15 +1,16 @@
 # Classical Probability SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 Use this file when writing, repairing, or reviewing SP/xac-suat/xac-suat-co-dien short-answer questions. The local SA bank includes digit arrangements, "at least one" complements, repeated independent trials, color/number assignment, envelopes chosen with replacement, and finite combinatorial casework.
 
 ## Core Arc
 
-1. Define the sample space.
-2. Define the favorable event.
-3. Choose the safest count: direct count, complement, cases, or geometric series.
-4. Count with exact integers or Sympy rationals.
-5. Reduce the probability fraction.
-6. Compute the requested final expression such as `a+b`, `ma+nb`, or a rounded probability.
+1. Analyze the event structure and choose the safest count: direct count, complement, cases, or geometric series.
+2. Define the sample space and favorable event clearly.
+3. Count with exact integers or Sympy rationals, keeping cases disjoint and exhaustive.
+4. Reduce the probability fraction, compute the requested expression such as `a+b`, `ma+nb`, or a rounded probability, and conclude with a boxed answer.
 
 Never round a probability before using it in later algebra.
 
@@ -87,6 +88,7 @@ For answer expressions:
 - reduce `P=\dfrac{a}{b}` before computing `S`
 - display substitution, e.g. `S=3a-2b=...`
 - if final answer is rounded, state the rounding rule in the stem and use `lam_tron(value, digits)`
+- if a practical probability story asks for a minimum number of trials/items to guarantee or reach a threshold, word the stem as "toi thieu" and use the first integer satisfying the condition, not ordinary rounding
 
 ## Red Flags
 

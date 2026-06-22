@@ -1,16 +1,16 @@
 # Conditional Probability SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 Use this file when writing, repairing, or reviewing SP/xac-suat/xac-suat-co-dieu-kien short-answer questions. The local SA bank includes drawing without replacement, medical testing, and conditioned combinatorial counting such as lucky license plates containing a required digit.
 
 ## Core Arc
 
-1. Define events clearly.
-2. Identify what is known or conditioned on.
-3. Compute the denominator of the conditional probability.
-4. Compute the numerator, usually an intersection.
-5. Use `P(A|B)=n(A cap B)/n(B)` or `P(A|B)=P(A cap B)/P(B)`.
-6. Reduce the fraction or round the final requested probability.
-7. Substitute into the requested expression.
+1. Analyze the condition and identify which probability is being asked.
+2. Define events clearly and state what is known or conditioned on.
+3. Compute the denominator and numerator, usually an intersection, then use `P(A|B)=n(A cap B)/n(B)` or `P(A|B)=P(A cap B)/P(B)`.
+4. Reduce the fraction or round only the final requested probability, substitute into the requested expression, and conclude with a boxed answer.
 
 Do not compute `P(A|B)` by intuition; always name both numerator and denominator.
 
@@ -61,6 +61,7 @@ For pair-sum restrictions, group digits into singleton and paired sets. If a req
 - Probability fraction should be reduced before extracting numerator and denominator.
 - Final expression should be positive unless the stem explicitly allows negative values.
 - For rounded percent answers, use `lam_tron(value, digits)` and state the rounding rule in the stem.
+- For minimum-count questions based on a probability threshold, find the first integer that satisfies the condition and word the stem with "toi thieu"; do not ordinary-round the continuous/logarithmic value.
 
 ## LaTeX And Presentation
 

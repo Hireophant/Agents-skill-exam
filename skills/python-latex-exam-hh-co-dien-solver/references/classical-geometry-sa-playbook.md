@@ -1,4 +1,7 @@
 # Classical Geometry SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 ## Purpose
 
@@ -19,11 +22,10 @@ Common reductions:
 ## Solve-the-stem algorithm
 
 1. Identify the final target: angle, distance, area, volume, length, or extremum.
-2. Choose the standard reduction.
-3. Introduce only the auxiliary points or planes needed for that reduction.
-4. Convert the spatial target to a 2D angle, right triangle, distance-to-plane, area sum, or one-variable model.
-5. Compute intermediate quantities in a strict chain.
-6. Return to the original target and answer in the requested form.
+2. Choose the standard reduction and briefly explain the direction of the solution.
+3. Introduce only the auxiliary points or planes needed for that reduction, with any required conditions.
+4. Convert the spatial target to a 2D angle, right triangle, distance-to-plane, area sum, or one-variable model, then solve in a strict chain.
+5. Check the result against the original geometry, return to the requested target, and conclude with a boxed answer.
 
 ## Human-style presentation
 
@@ -48,6 +50,7 @@ Open with the construction, not the arithmetic. State why a line is perpendicula
 - Painted area: split into base, top, and lateral faces; compute one lateral face and multiply by symmetry.
 - Box or prism intersection: locate the key point with parallelism, orthogonality, or Thales before computing the requested length.
 - Practical extremum: set one geometric variable, express the objective, and maximize with a clean inequality or derivative.
+- Practical whole-count results, such as number of tiles, paint cans, or pieces needed, require a "toi thieu" stem and `ceil`, not ordinary rounding.
 
 ## Red flags
 
@@ -56,4 +59,3 @@ Open with the construction, not the arithmetic. State why a line is perpendicula
 - jumping from a spatial target directly to a trig formula
 - rounding an intermediate value and reusing it
 - introducing helper points that do no work
-

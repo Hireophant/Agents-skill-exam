@@ -1,4 +1,7 @@
 # Coordinate Geometry MC Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 ## Purpose
 

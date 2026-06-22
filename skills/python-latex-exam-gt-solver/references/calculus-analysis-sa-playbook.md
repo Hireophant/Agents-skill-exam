@@ -1,4 +1,7 @@
 # Calculus/Analysis SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 Use this file when writing, repairing, or reviewing GT short-answer questions. GT SA items often model real situations, so correctness includes the mathematical model, the practical domain, units, and final rounding.
 
@@ -6,13 +9,10 @@ Use this file when writing, repairing, or reviewing GT short-answer questions. G
 
 Write the problem and solution around this chain:
 
-1. Define the variable and unit.
-2. State the domain or interval from the story.
-3. Build the function, integral, or exponential/logarithmic equation.
-4. Differentiate, integrate, or solve the equation on the valid domain.
-5. Check endpoints or practical constraints when needed.
-6. Convert units and round only the final result.
-7. Conclude in one sentence with the requested answer format.
+1. Analyze the target and state the method: derivative, integral, equation, inequality, or comparison.
+2. Define the variable with unit and state the domain or interval from the story.
+3. Build the function, integral, or exponential/logarithmic equation, then differentiate, integrate, or solve on the valid domain.
+4. Check endpoints or practical constraints, convert units, round only the final result when required, and conclude in one sentence with a boxed answer.
 
 ## Applied Optimization
 
@@ -98,6 +98,8 @@ Then in code:
 - do not reuse decimal-comma strings in later arithmetic
 - do not wrap a one-decimal answer in `int`
 - convert units before final rounding, not after
+
+For whole-number practical requirements, such as number of containers, trips, products, or workers, do not use ordinary rounding. Make the stem ask for the minimum count and compute with `ceil`; show the exact/approximate continuous value first, then conclude the minimum integer.
 
 ## Red Flags
 

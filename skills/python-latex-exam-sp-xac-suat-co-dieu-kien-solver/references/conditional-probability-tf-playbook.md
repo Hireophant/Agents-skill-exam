@@ -1,4 +1,7 @@
 # Conditional Probability TF Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 Use this file when writing, repairing, or reviewing SP/xac-suat/xac-suat-co-dieu-kien true-false questions. The local bank has TF samples for drawing without replacement, source/quality inspection, medical or AI diagnosis, total probability, Bayes, and threshold decisions. Do not use this as a classical-probability-only or statistics playbook.
 

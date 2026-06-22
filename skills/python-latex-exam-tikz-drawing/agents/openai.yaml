@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python LaTeX Exam TikZ Drawing"
+  short_description: "Ve hinh TikZ de thi theo mau"
+  default_prompt: "Use $python-latex-exam-tikz-drawing to draw exam-ready TikZ figures from a prompt, image, or solution layout."

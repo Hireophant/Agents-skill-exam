@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python LaTeX Exam QC"
+  short_description: "QC de Toan sau random 100 cau"
+  default_prompt: "Use $python-latex-exam-qc to review generated LaTeX exam output, find errors, fix the source, and rerun QC until clean."

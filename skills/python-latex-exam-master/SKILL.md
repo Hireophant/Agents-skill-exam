@@ -1,6 +1,6 @@
 ---
 name: python-latex-exam-master
-description: Common Python-to-LaTeX exam authoring style for generated math questions. Always use this common skill together with exactly one domain solver skill when Codex writes, repairs, reviews, or converts exam questions from an image, prompt, code file name, solution-reference image, or Python generator and must preserve LaTeX/TikZ layout, house style, teacher-readable worked solutions, exact sample-solution formatting, randomization guardrails, answer consistency, helper usage, and practical realism.
+description: Common Python-to-LaTeX exam authoring style for generated math questions. Always use this common skill together with exactly one domain solver skill when Codex writes, repairs, reviews, or converts exam questions from an image, prompt, code file name, solution-reference image, or Python generator and must preserve LaTeX/TikZ layout, mandatory formula/notation standards, house style, teacher-readable worked solutions, exact sample-solution formatting, randomization guardrails, answer consistency, helper usage, and practical realism.
 ---
 
 # Python Latex Exam Master
@@ -44,11 +44,13 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 4. Read only the common reference files below that are needed for the task.
 5. Extract any user-specific overrides, such as which numbers to randomize, which values to keep fixed, required ranges, rounding, wording, figure layout, or solution-reference formatting.
 6. Apply user-specific overrides first for the exact parts the user specified; use the skill only as the fallback for unspecified parts.
-7. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
-8. Separate exact computation values from display strings.
-9. Add randomization guardrails before composing the statement.
-10. Generate statement, answer key, worked solution, and figures from the same canonical variables.
-11. Inspect generated `.tex` after nontrivial edits, especially around `itemchoice`, `minipage`, TikZ, and forced line breaks.
+7. Preserve generator metadata before coding: in the Python docstring, paste the original prompt/stem under `TOM TAT DE BAI` as close to verbatim as possible, removing stray escape backslashes if copied from LaTeX; set `HASHTAG` to the actual topic names used by the question.
+8. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
+9. Separate exact computation values from display strings.
+10. Add randomization guardrails before composing the statement.
+11. Generate statement, answer key, worked solution, and figures from the same canonical variables.
+12. Inspect generated `.tex` after nontrivial edits, especially around `itemchoice`, `minipage`, TikZ, and forced line breaks.
+13. After generating the required 100 randomized `.tex` samples, use `python-latex-exam-qc` to audit the output and keep fixing/rerunning until QC is clean.
 
 ## Common References
 
@@ -56,23 +58,27 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 - Read [generator-randomization-and-consistency.md](./references/generator-randomization-and-consistency.md) for random parameters, exact-vs-display values, rounding, answer consistency, and hidden constraints.
 - Read [authoring-style-and-feedback.md](./references/authoring-style-and-feedback.md) for teacher-style explanation, house wording, layout fidelity, and handling user/teacher feedback.
 - Read [latex-tikz-output-checklist.md](./references/latex-tikz-output-checklist.md) for LaTeX/TikZ compile errors, generated `.tex` inspection, `minipage`, integral notation, and figure placement.
+- Always read and obey [trinh-bay-cong-thuc-full.md](./references/trinh-bay-cong-thuc-full.md) when the task contains mathematical formulas, notation, units, systems, intervals, integrals, variation tables, aligned equations, lists, or solution presentation. The source PDF is preserved at [TrinhBayCongThuc.pdf](./references/TrinhBayCongThuc.pdf).
 
 ## Non-Negotiables
 
 - User instructions override the skill for the exact parts the user specifies. If the user says which numbers to randomize, which values to keep fixed, what range to use, how to round, or what format/style to follow, obey that local instruction first. Use the skill rules only for parts the user did not specify.
 - Never reuse a formatted display string as a numeric input.
+- Follow `trinh-bay-cong-thuc-full.md` exactly for mathematical typography: all formulas/numbers in math mode, punctuation outside math where required, decimal commas as `{,}`, upright units, `\mathrm{d}x`, `\mathrm{P}(A)`, `\mathrm{C}_n^k`, `\parallel`, `\perp`, degree symbols, interval delimiters, systems, variation tables, and aligned solution chains.
 - Never trust a Python diff alone for a layout fix; inspect generated `.tex`.
 - Keep statement, answer, solution, and figure labels tied to one source of truth.
 - Keep TF false statements plausible and parallel, not cartoonishly wrong.
 - Keep SA final answers aligned with the requested precision and unit.
+- For SA worked solutions, follow the four-step teacher arc when the problem is nontrivial: analyze/orient the method, set variables with conditions, solve the equation/system/inequality/model without overusing calculator shortcuts, then check conditions and conclude with a boxed final answer.
 - Do not round intermediate values unless the statement explicitly allows it.
 - Do not use `int(...)` to fake a one-decimal answer; use the local display helper such as `lam_tron(value, digits)`.
+- For practical count questions where the answer is a number of objects, trips, boxes, paint cans, workers, months, etc., do not treat this as ordinary rounding. Word the stem as "toi thieu" when appropriate and compute with `ceil`; if the prompt only says "lam tron" but the context requires a minimum count, flag or ask before coding.
 - Add `while True` guardrails for invalid domains, ugly values, repeated options, impossible figures, non-realistic units, and wrong answers that collapse to the correct one after rounding.
 - For practical contexts, reject physically silly outputs unless the story explicitly supports them.
 
 ## House Style
 
-Preserve the user's approved rhythm. If a sample uses `Ta co`, `Ma`, `Do do`, `Suy ra`, `Vay`, bracket labels, specific integral notation, or no trailing punctuation in TF statements, keep that pattern.
+Preserve the user's approved rhythm. If a sample uses `Ta co`, `Ma`, `Do do`, `Suy ra`, `Vay`, bracket labels, specific integral notation, or no trailing punctuation in TF statements, keep that pattern. For formula and notation details, the mandatory standard in `trinh-bay-cong-thuc-full.md` is the default contract.
 
 If the user provides a solution-reference image, treat it as a strict formatting contract. Reproduce the same presentation order, line breaks, calculation steps, notation, alignment style, wording rhythm, and conclusion style as closely as LaTeX allows. Do not add extra explanations, delete intermediate steps, reorder calculations, simplify the solution structure, change the solving route, or "improve" the presentation unless the user explicitly asks for that. If the reference solution contains a mathematical error, state the error clearly and then preserve the same presentation style while correcting only the necessary mathematical content.
 
@@ -85,6 +91,7 @@ For figures, do not change the layout contract. Use `minipage` only when the sam
 - Treat user/teacher QC as a narrow patch unless the model is wrong. If the QC says "chi sua phan tren hinh", "de giu nhu cu", or "trinh bay nhu cu", edit only that region and keep the old solving route, line breaks, and calculation depth.
 - When a reference image is supplied, match wording additions exactly in the stem rather than replacing the old sentence; for example add clarifying phrases such as "nhu hinh ve" while preserving the randomized angle or data.
 - For SA rounding text, use the local house wording from the templates and round only the final requested quantity. In the solution, use `=` for exact integer/exact symbolic results and `\approx` only when a rounded display is genuinely needed.
+- For practical SA count answers, distinguish "round to nearest" from "minimum required". If the computed value is `3.3` cans/trips/containers, the final required count is `4`, and the stem should say "can toi thieu bao nhieu ..." rather than ordinary "lam tron".
 - For midpoint/vector-coordinate notation already approved by the user, preserve bracket style such as `[I]=\dfrac{[M]+[N]}{2}` instead of silently switching to tuple-only notation.
 - For visual tasks, make a stem figure and a solution figure serve different roles: the stem figure should stay clean and close to the sample; the solution figure may add axes, projections, helper labels, or calculation marks.
 

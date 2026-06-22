@@ -6,8 +6,66 @@ Quick validation script for skills - minimal version
 import sys
 import os
 import re
-import yaml
 from pathlib import Path
+
+try:
+    import yaml
+except ModuleNotFoundError:
+    class _MiniYamlError(Exception):
+        pass
+
+    class _MiniYaml:
+        YAMLError = _MiniYamlError
+
+        @staticmethod
+        def safe_load(text):
+            data = {}
+            current_parent = None
+
+            for raw_line in text.splitlines():
+                if not raw_line.strip() or raw_line.lstrip().startswith("#"):
+                    continue
+
+                indent = len(raw_line) - len(raw_line.lstrip(" "))
+                line = raw_line.strip()
+                if ":" not in line:
+                    raise _MiniYamlError(f"Cannot parse line: {raw_line}")
+
+                key, value = line.split(":", 1)
+                key = key.strip()
+                value = value.strip()
+
+                if indent == 0:
+                    current_parent = None
+                    if value == "":
+                        data[key] = {}
+                        current_parent = key
+                    else:
+                        data[key] = _MiniYaml._parse_scalar(value)
+                else:
+                    if current_parent is None or not isinstance(data.get(current_parent), dict):
+                        raise _MiniYamlError(f"Nested key without parent: {raw_line}")
+                    data[current_parent][key] = _MiniYaml._parse_scalar(value)
+
+            return data
+
+        @staticmethod
+        def _parse_scalar(value):
+            if (
+                len(value) >= 2
+                and value[0] == value[-1]
+                and value[0] in {"'", '"'}
+            ):
+                return value[1:-1]
+            if value in {"true", "True"}:
+                return True
+            if value in {"false", "False"}:
+                return False
+            if value in {"null", "Null", "~"}:
+                return None
+            return value
+
+    yaml = _MiniYaml()
 
 def validate_skill(skill_path):
     """Basic validation of a skill"""

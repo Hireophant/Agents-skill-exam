@@ -1,15 +1,18 @@
 # Algebra / Discrete Math SA Playbook
+## Mandatory notation standard
+
+This playbook controls mathematical strategy only. For every displayed formula, symbol, unit, interval, system, probability/combinatorics notation, vector, integral, variation table, list, and aligned solution chain, obey `python-latex-exam-master/references/trinh-bay-cong-thuc-full.md`. Do not let shorthand examples in this playbook override that standard.
 
 Use this file when writing, repairing, or reviewing DS short-answer questions. The current DS SA bank includes linear programming, practical investment/production, geometric sums, compound interest, and logarithmic sound-level models.
 
 ## Core Arc
 
-1. Define variables with units.
-2. Translate every real-world condition into an equation, inequality, sequence, or logarithmic relation.
-3. Solve only inside the valid practical domain.
-4. Use exact algebra as long as possible.
-5. Convert units and round only the final answer.
-6. Conclude with the requested numeric answer and unit.
+1. Analyze the model type and name the target quantity.
+2. Define variables with units and conditions.
+3. Translate every real-world condition into an equation, inequality, sequence, or logarithmic relation, then solve only inside the valid practical domain using exact algebra as long as possible.
+4. Check the conditions, convert units, and conclude with the requested numeric answer and unit in a boxed final answer.
+
+For practical discrete counts, do not ordinary-round a fractional requirement. If the story asks for the number of items, vehicles, boxes, months, or similar whole units needed, word the stem as "toi thieu" and use `ceil`.
 
 ## Linear Programming Models
 

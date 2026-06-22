@@ -7,7 +7,7 @@ description: DS algebra/discrete-math solver for Python-LaTeX exam questions. Us
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and house-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, house-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -19,7 +19,7 @@ Use this skill for DS algebra/discrete math exam items. The current local bank s
 2. Read only the matching local playbook:
    - MC: [algebra-discrete-mc-playbook.md](./references/algebra-discrete-mc-playbook.md)
    - SA: [algebra-discrete-sa-playbook.md](./references/algebra-discrete-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. Lock domains, integer constraints, financial timing, and feasibility before writing options or final answers.
 5. Build the solution as a human-readable chain, not hidden scratch work.
 

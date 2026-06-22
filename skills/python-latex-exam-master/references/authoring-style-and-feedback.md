@@ -2,7 +2,16 @@
 
 ## Purpose
 
-Use this file when a generator is mathematically close but still needs to match the approved classroom style: wording rhythm, solution depth, notation, layout, and teacher-feedback fixes.
+Use this file when a generator is mathematically close but still needs to match the approved classroom style: wording rhythm, solution depth, notation, layout, formula standards, and teacher-feedback fixes.
+
+## Mandatory formula and notation standard
+
+- Before writing or reviewing formulas, read [trinh-bay-cong-thuc-full.md](./trinh-bay-cong-thuc-full.md) and treat it as binding. The original source PDF is [TrinhBayCongThuc.pdf](./TrinhBayCongThuc.pdf).
+- Put formulas and numbers in math mode, but keep sentence punctuation outside math except for approved cases such as `$S.ABC$`, `$A(2; 3)$`, or displayed formulas where the punctuation belongs inside.
+- Use the prescribed symbols: `\mathscr{D}` for domain, `\varnothing` for empty set, `\setminus` for set difference, `\times`/`\cdot` for multiplication when needed, `\ldots` for listing and `\cdots` for operations.
+- Use decimal commas as `{,}`, systems with aligned `&`, `\mathrm{C}_n^k`, `\mathrm{A}_n^k`, `\mathrm{P}_n`, `\mathrm{P}(A)`, upright `\mathrm{d}x`, `\mathrm{e}`, upright units with a space, `\parallel`, `\perp`, `^\circ`, and `\colon` for equations of lines/planes.
+- Use `\dfrac` for standalone fractions and `\frac`/`\tfrac` in bases, exponents, or integral bounds.
+- Do not introduce shorthand commands or new environments outside the project rules. Do not begin exercises/solutions with `\hfill`, and do not add extra `\\`, `\par`, or `\hfill` after list/minipage-style environments unless the sample explicitly requires it.
 
 ## Teacher-style solution flow
 
@@ -16,6 +25,17 @@ Prefer this order:
 6. conclude in the requested unit and precision
 
 Avoid ending with a bare formula when one short conclusion sentence would make the reasoning easier to read.
+
+## SA four-step solution contract
+
+For nontrivial SA questions, structure the worked solution around four visible moves unless the user's reference image locks a different order:
+
+1. Analyze the problem and state the method or key reduction.
+2. Set variables with conditions and units.
+3. Solve the equation, system, inequality, optimization, or counting model with enough algebra to be teacher-readable; do not replace the reasoning with calculator-only steps.
+4. Check conditions, interpret the result in context, and conclude with the final answer boxed, for example `\boxed{...}`.
+
+For easy SA items, these moves may be compressed, but do not skip the condition check or the final contextual conclusion.
 
 ## Locked house style
 
@@ -43,6 +63,13 @@ Use this classroom sequence when relevant:
 6. conclude
 
 Use `=` for exact values and `\approx` only for genuinely rounded values. If the generator intentionally makes a root exact, the solution should display it as exact.
+
+## Generator metadata
+
+In each Python generator docstring, keep metadata useful for future repairs:
+
+- `TOM TAT DE BAI`: paste the original stem/prompt as close to verbatim as possible. If copied from LaTeX, remove stray escape backslashes that are not part of meaningful notation.
+- `HASHTAG`: use specific topic tags that match the actual problem type, not vague labels. Include the method when useful, such as `#toi_uu`, `#logistic`, `#hinh_lap_phuong`, `#xac_suat_co_dieu_kien`.
 
 ## Layout and figure roles
 

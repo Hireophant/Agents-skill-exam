@@ -7,7 +7,7 @@ description: GT calculus/analysis solver for Python-LaTeX exam questions. Use wi
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and house-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, house-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -20,7 +20,7 @@ Use this skill for GT calculus/analysis items involving functions, derivatives, 
    - MC: [calculus-analysis-mc-playbook.md](./references/calculus-analysis-mc-playbook.md)
    - TF: [calculus-analysis-tf-playbook.md](./references/calculus-analysis-tf-playbook.md)
    - SA: [calculus-analysis-sa-playbook.md](./references/calculus-analysis-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. Lock the domain, unit, interval, rounding rule, and final requested quantity.
 5. Use one canonical model for statement, computation, answer, and solution.
 

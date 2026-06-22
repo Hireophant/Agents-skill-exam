@@ -4,6 +4,10 @@
 
 Use this file when LaTeX fails to compile, a TikZ drawing is malformed, or the generated `.tex` layout differs from the Python source.
 
+## Formula-standard checks
+
+Read [trinh-bay-cong-thuc-full.md](./trinh-bay-cong-thuc-full.md) before finalizing any formula-heavy statement or solution. In particular, verify math mode for formulas/numbers, punctuation placement around `$...$`, decimal comma `{,}`, upright units, prescribed probability/combinatorics symbols, `\mathrm{d}x`, interval delimiters with `\left...\right`, BBT settings, and aligned equation chains.
+
 ## LaTeX checks
 
 1. Match every `$`, `\left`, `{`, and environment opening with a close.
@@ -22,7 +26,7 @@ Representative failures:
 
 ## Integral style
 
-If the user has locked an integral style, reuse it everywhere in the same file. A stable handwritten pattern is:
+The default integral notation must follow `TrinhBayCongThuc.pdf`: use display style with limits and upright differential, for example `\displaystyle\int\limits_a^b f(x)\mathrm{\,d}x`. If the user has locked an integral style more specifically, reuse it everywhere in the same file. A stable handwritten pattern is:
 
 ```python
 f"\\displaystyle \\int \\limits_{{{a}}}^{{{b}}} \\left[f(x)\\right]^2\\,\\mathrm{{d}}x"

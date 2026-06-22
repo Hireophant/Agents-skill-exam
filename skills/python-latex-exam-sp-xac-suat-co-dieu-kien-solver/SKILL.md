@@ -7,7 +7,7 @@ description: SP xac suat co dieu kien solver for Python-LaTeX exam questions. Us
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and house-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, house-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -19,7 +19,7 @@ Use this skill for conditional-probability items. The current local examples sup
 2. Read only the matching local playbook:
    - TF: [conditional-probability-tf-playbook.md](./references/conditional-probability-tf-playbook.md)
    - SA: [conditional-probability-sa-playbook.md](./references/conditional-probability-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. Define events before calculating and keep event meanings fixed.
 5. Compute the conditioning denominator and verify it is nonzero.
 6. Present Bayes or total-probability steps explicitly enough that `P(A|B)` is not confused with `P(B|A)`.

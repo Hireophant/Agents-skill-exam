@@ -21,6 +21,7 @@ from pythonfile.thuvien import *
 
 General rules:
 
+- obey [trinh-bay-cong-thuc-full.md](./trinh-bay-cong-thuc-full.md) for every mathematical symbol, number, unit, interval, system, aligned formula, and list environment
 - keep one function per question template
 - derive `ID_cauhoi` from `inspect.currentframe().f_code.co_name` unless the project already has another convention
 - build `debai_text` first, then call `generate_latex_question(...)`

@@ -7,7 +7,7 @@ description: HH gan truc/Oxyz coordinate-geometry solver for Python-LaTeX exam q
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and figure-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, figure-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -20,7 +20,7 @@ Use this skill for geometry problems where a coordinate system, Oxyz model, vect
    - MC: [coordinate-geometry-mc-playbook.md](./references/coordinate-geometry-mc-playbook.md)
    - TF: [coordinate-geometry-tf-playbook.md](./references/coordinate-geometry-tf-playbook.md)
    - SA: [coordinate-geometry-sa-playbook.md](./references/coordinate-geometry-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. Choose coordinates that make the real object simple and mathematically valid.
 5. Keep the same coordinate assumptions in the statement, figure, formulas, answer, and solution.
 

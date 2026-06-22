@@ -7,7 +7,7 @@ description: HH hinh hoc co dien solver for Python-LaTeX exam questions. Use wit
 
 ## Required Pairing
 
-Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, and figure-style rules.
+Always pair this solver with `python-latex-exam-master` for common LaTeX, presentation, randomization, figure-style rules, and the mandatory formula/notation standard from `trinh-bay-cong-thuc-full.md`.
 
 ## Use When
 
@@ -19,7 +19,7 @@ Use this skill for classical geometry items solved by synthetic properties rathe
 2. Read only the matching local playbook:
    - MC: [classical-geometry-mc-playbook.md](./references/classical-geometry-mc-playbook.md)
    - SA: [classical-geometry-sa-playbook.md](./references/classical-geometry-sa-playbook.md)
-3. Apply the common rules from `python-latex-exam-master`.
+3. Apply the common rules from `python-latex-exam-master`, including the mandatory formula/notation standard.
 4. Identify the canonical structure before calculating: projection, parallel replacement, centroid, midpoint, section ratio, regular-solid symmetry, or 2D reduction.
 5. Present the shortest defensible teacher chain.
 
