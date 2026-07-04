@@ -68,7 +68,7 @@ Use `=` for exact values and `\approx` only for genuinely rounded values. If the
 
 In each Python generator docstring, keep metadata useful for future repairs:
 
-- `TOM TAT DE BAI`: paste the original stem/prompt as close to verbatim as possible. If copied from LaTeX, remove stray escape backslashes that are not part of meaningful notation.
+- `TOM TAT DE BAI`: paste the original stem/prompt verbatim. Do not summarize, rewrite, shorten, or replace it with a generic description. If copied from LaTeX, remove only stray escape backslashes that are not part of meaningful notation.
 - `HASHTAG`: use specific topic tags that match the actual problem type, not vague labels. Include the method when useful, such as `#toi_uu`, `#logistic`, `#hinh_lap_phuong`, `#xac_suat_co_dieu_kien`.
 
 ## Layout and figure roles

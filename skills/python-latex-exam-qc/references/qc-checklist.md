@@ -6,6 +6,8 @@
 - TF has four statements, independent enough, with matched explanations.
 - SA has one unique final answer and respects the requested answer format.
 - If an exam bundle has multiple variants, do not merge comments across variants.
+- Python generator docstring has `TOM TAT DE BAI` pasted from the original stem/prompt verbatim, with only stray LaTeX escape backslashes removed, and not replaced by a paraphrased summary.
+- Python generator docstring has `HASHTAG` with specific topic tags relevant to the actual question.
 
 ## Math Correctness
 
