@@ -44,7 +44,7 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 4. Read only the common reference files below that are needed for the task.
 5. Extract any user-specific overrides, such as which numbers to randomize, which values to keep fixed, required ranges, rounding, wording, figure layout, or solution-reference formatting.
 6. Apply user-specific overrides first for the exact parts the user specified; use the skill only as the fallback for unspecified parts.
-7. Preserve generator metadata before coding: in the Python docstring, paste the original prompt/stem under `TOM TAT DE BAI` as close to verbatim as possible, removing stray escape backslashes if copied from LaTeX; set `HASHTAG` to the actual topic names used by the question.
+7. Preserve generator metadata before coding: in the Python docstring, under `TOM TAT DE BAI`, paste the original problem statement/stem verbatim, only removing stray escape backslashes if copied from LaTeX; do not summarize, paraphrase, shorten, or replace it with a generic description. Under `HASHTAG`, use the exact relevant topic names for the question, not broad filler tags.
 8. Lock mathematical model, units, answer format, rounding rule, and layout contract before coding.
 9. Separate exact computation values from display strings.
 10. Add randomization guardrails before composing the statement.
@@ -67,6 +67,7 @@ After choosing the solver, read only that solver's `SKILL.md` and its local `ref
 - Follow `trinh-bay-cong-thuc-full.md` exactly for mathematical typography: all formulas/numbers in math mode, punctuation outside math where required, decimal commas as `{,}`, upright units, `\mathrm{d}x`, `\mathrm{P}(A)`, `\mathrm{C}_n^k`, `\parallel`, `\perp`, degree symbols, interval delimiters, systems, variation tables, and aligned solution chains.
 - Never trust a Python diff alone for a layout fix; inspect generated `.tex`.
 - Keep statement, answer, solution, and figure labels tied to one source of truth.
+- Every authored question generator must include docstring metadata with `TOM TAT DE BAI` containing the verbatim original stem/prompt, with stray LaTeX escape backslashes removed when needed, and `HASHTAG` containing specific topic tags that match the actual question.
 - Keep TF false statements plausible and parallel, not cartoonishly wrong.
 - Keep SA final answers aligned with the requested precision and unit.
 - For SA worked solutions, follow the four-step teacher arc when the problem is nontrivial: analyze/orient the method, set variables with conditions, solve the equation/system/inequality/model without overusing calculator shortcuts, then check conditions and conclude with a boxed final answer.
