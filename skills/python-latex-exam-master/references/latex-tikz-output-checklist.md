@@ -56,3 +56,27 @@ Look for:
 - `minipage` widths or scales that make a figure drop below its partner
 - helper wrappers injecting `\par`, `\noindent`, or `\\`
 - Python code that looks correct but expands into a different classroom layout
+
+## Vietnamese LaTeX Specifics (TrinhBayCongThuc & VeHinh)
+
+When generating Vietnamese mathematics exam questions and worked solutions in LaTeX/TikZ (such as those in `KTL3.py`), adhere to these rules:
+
+1. **Decimal Commas in BBT (tkz-tab)**: Any decimal containing a comma (e.g., `0,5` or `0,75`) passed to `bbtb2CTC`/`bbtb2TCT` will crash the TikZ parser because commas are treated as list separators. You MUST escape them using `.replace(',', '\\text{,}')` or wrap them in curly braces `{,}`.
+2. **Evaluating Variables in LaTeX Fractions**: In Python f-strings, double curly braces (e.g., `\\dfrac{{-zA}}{{{zC - zB}}}`) evaluate to the literal string `-zA` instead of its numerical value because of Python f-string escaping rules. You MUST use triple curly braces (e.g., `\\dfrac{{{ -zA }}}{{{ zC - zB }}}`) to force Python to evaluate variables into their numerical equivalents.
+3. **Static Coordinate Calculations**: Do not pass complex mathematical expressions (like `(-2.2 + 0.42, 1.2 - 0.42)`) to TikZ coordinates inside Python generators. Compute float/rational coordinate values in Python first, and pass the static values into the TikZ string to prevent engine overhead and syntax compilation crashes.
+4. **Side-by-Side minipage Layout**: Place the TikZ illustration side-by-side with the question text using `minipage` environments (typically `0.65\textwidth` for text and `0.32\textwidth` for the TikZ figure):
+   ```latex
+   \begin{minipage}[t]{0.65\textwidth}
+   [Question Stem Text...]
+   \end{minipage}
+   \hfill
+   \begin{minipage}[t]{0.32\textwidth}
+   \vspace{0pt}
+   \centering
+   \begin{tikzpicture}[scale=...]
+   ...
+   \end{tikzpicture}
+   \end{minipage}
+   ```
+5. **Step Headings**: Place vertical newlines `\\\\` after each blue step heading (`\ding{172}` to `\ding{175}`) so that they are isolated on their own line and do not stand next to equations or solutions on the same line.
+

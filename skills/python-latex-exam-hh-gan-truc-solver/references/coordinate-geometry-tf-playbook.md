@@ -84,3 +84,17 @@ For coordinate-midpoint or figure-reading statements:
 - explaining the false statement instead of the true paired statement
 - using a rounded value to decide a geometric inequality
 - generating a story where the object crosses the plane behind the starting point
+
+## Lessons from KTL3.py (HH194TF002)
+
+When writing Oxyz coordinate geometry generators (especially for vector operations, trapezoids, and angle bisectors):
+1. **Exact Vector Lengths**:
+   - Use Pythagorean quadruples (`(2, 1, 2)`, `(2, 3, 6)`, `(4, 4, 2)`) to generate vectors that yield exact integer lengths, preventing float precision errors in distance checks.
+2. **Preventing Collinearity & Division by Zero**:
+   - Verify that vectors are not collinear by checking that their cross product is not the zero vector (`cross_x != 0 or cross_y != 0 or cross_z != 0`).
+   - Check that any vector components used in the denominator of ratios (e.g. `\dfrac{a-x_C}{-u_x}`) are non-zero.
+3. **Trapezoids & Plane Constraints**:
+   - When solving for a point $D$ lying on the $Oxy$ plane ($D(a, b, 0)$) such that $ABCD$ is a trapezoid (either $BA \parallel CD$ or $AD \parallel BC$), ensure the calculated $D$ does not coincide with $A, B$, or $C$.
+4. **Angle Bisector Theorem**:
+   - When solving for the angle bisector foot $E$ using $\overrightarrow{EB} = -\dfrac{AB}{AC} \cdot \overrightarrow{EC}$, enforce $AB \neq AC$ to keep the triangle non-isosceles, ensuring that false distractors (like using the outer bisector formula $\overrightarrow{EB} = \dfrac{AB}{AC} \cdot \overrightarrow{EC}$) have a well-defined non-zero denominator.
+

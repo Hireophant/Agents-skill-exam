@@ -112,3 +112,18 @@ Pause and fix the generator if:
 - a threshold statement could flip after rounding
 - the solution says "maximum/minimum" without derivative sign, variation table, AM-GM equality, or endpoint comparison
 - the final answer has no unit while the stem asks for a practical quantity
+
+## Lessons from KTL3.py (GT153SA021, GT153SA023, GT154SA034)
+
+When implementing applied optimization question generators:
+1. **Predefined Parameter Families**:
+   - For travel time optimization across boundaries (e.g., road construction): Design the relationship between speeds (e.g. `v2 = 2 * v1` or `v2 = 3 * v1`) and dimensions beforehand so that the critical point $x$ solving $t'(x)=0$ is an exact integer.
+   - For trachea diameter optimization: Select diameter $D$ from a discrete list of decimals divisible by 3 (e.g. `[0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7]`) so that the optimal radius $r = D/3$ resolves to a clean terminating decimal.
+   - For cage/walkway area minimization: Choose configurations where $x_{opt} = \sqrt{\dfrac{w_x \cdot S_{water}}{w_y}}$ evaluates exactly to an integer.
+2. **Pedagogical 4-Step Solution Structure**:
+   Structure worked solutions using bold circle numbers:
+   - `\textcolor{blue}{\textbf{\ding{172} Phân tích, định hướng tìm lời giải}}\\`
+   - `\textcolor{blue}{\textbf{\ding{173} Đặt ẩn và lập hàm số}}\\`
+   - `\textcolor{blue}{\textbf{\ding{174} Giải phương trình đạo hàm tìm cực trị}}\\`
+   - `\textcolor{blue}{\textbf{\ding{175} Kết luận, so sánh với điều kiện}}\\`
+
