@@ -117,3 +117,40 @@ Before finishing, verify:
 - true/false statement variants use the same mathematical side of the threshold as their worked solutions
 - LaTeX compiles or the generated `.tex` block is inspected
 - figure labels, bounds, answers, and explanations match
+
+---
+
+## Guidelines for Vietnamese LaTeX Exam Question Generators (TrinhBayCongThuc & VeHinh)
+
+When creating or modifying skills that generate Vietnamese mathematics exam questions and worked solutions in LaTeX/TikZ (such as those in `KTL3.py`), adhere to the following strict guidelines compiled from `TrinhBayCongThuc.pdf`, `Vehinh.pdf`, and developer lessons learned:
+
+### 1. Mathematical Logic & Parameter Consistency
+- **Integer Parameter Families**: Design parameter relationships (e.g. ratios between velocities, walkway margins, or base vectors) beforehand so that optimal values ($x_{opt}, y_{opt}$), intermediate steps, and final answers are clean integers or terminating decimals. Avoid infinite repeating decimals or non-rational values in solved steps.
+- **Avoiding Point Collision & Degeneracy**: Explicitly add constraints in the generator loop to ensure coordinates of solved points (e.g., $D$) do not coincide with given points ($A, B, C$) or create degenerate geometric cases (e.g., collinear triangles, or points lying on axes where they shouldn't).
+- **Answer Character Length Limits**: Always enforce short answer constraints (`len(str(ketqua)) <= 4`) inside the generator's `while True` loop to ensure bubble sheet compatibility.
+
+### 2. Formatting Math Formulas (TrinhBayCongThuc.pdf)
+- **Decimal Commas in BBT (tkz-tab)**: Any decimal value containing a comma (e.g., `0,5` or `0,75`) passed to `bbtb2CTC`/`bbtb2TCT` will crash the TikZ parser because commas are treated as list separators. You MUST escape them using `.replace(',', '\\text{,}')` or wrap them in curly braces `{,}`.
+- **Evaluating Variables in LaTeX Fractions**: In Python f-strings, double curly braces (e.g., `\\dfrac{{-zA}}{{{zC - zB}}}`) evaluate to the literal string `-zA` instead of its numerical value because of Python's f-string escaping rules. You MUST use triple curly braces (e.g., `\\dfrac{{{ -zA }}}{{{ zC - zB }}}`) to force Python to evaluate variables into their numerical equivalents.
+- **Signs & Number Formats**: Use helper functions (like `sodungsau()` or `format_number()`) to represent signs naturally (e.g., displaying `x + 3` instead of `x - -3`) and to output Vietnamese style decimal commas.
+- **Equation Alignments & Logical Systems**: Do not use nested systems of equations curly braces `\left\{\begin{array}{l}...` inside brackets `\left[...\right.`. Instead, use the logical AND symbol `\wedge` (e.g., `a = -1 \wedge b = -3`) to represent simultaneous equations.
+- **Step Headings**: Place vertical newlines `\\\\` after each blue step heading (`\ding{172}` to `\ding{175}`) so that they are isolated on their own line and do not stand next to equations or solutions on the same line.
+
+### 3. TikZ Drawing & Layout Guidelines (VeHinh.pdf)
+- **Side-by-Side minipage Layout**: Place the TikZ illustration side-by-side with the question text using `minipage` environments (typically `0.65\textwidth` for text and `0.32\textwidth` for the TikZ figure):
+  ```latex
+  \begin{minipage}[t]{0.65\textwidth}
+  [Question Stem Text...]
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+  \vspace{0pt}
+  \centering
+  \begin{tikzpicture}[scale=...]
+  ...
+  \end{tikzpicture}
+  \end{minipage}
+  ```
+- **Visual Scaling & Aspect Ratios**: Properly scale the diagram using `[scale=...]` to keep it visually balanced. The drawing dimensions and coordinates must match the physical and logical inequalities of the problem (e.g., if width $a <$ length $b$, represent the TikZ outer borders vertically, like a `(0,0) rectangle (4,5)`).
+- **Static Coordinate Calculations**: Do not pass complex mathematical expressions (like `(-2.2 + 0.42, 1.2 - 0.42)`) to TikZ coordinates inside Python generators. Compute float/rational coordinate values in Python first, and pass the static values into the TikZ string to prevent engine overhead and syntax compilation crashes.
+
