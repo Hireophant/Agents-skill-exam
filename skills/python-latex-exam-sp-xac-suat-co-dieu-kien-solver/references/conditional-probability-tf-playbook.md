@@ -52,6 +52,17 @@ For multi-branch cases, extend total probability across all branches.
 - Detection/complement: `at least one detects = 1 - P(no one detects)`.
 - Practical threshold: compare the exact posterior or risk with a nearby threshold after computing it.
 
+## Lessons from KTL4.py (SP233TF016)
+
+When generating conditional and total probability True/False questions (especially in medical or real-world statistics):
+1. **Terminating Decimal Probabilities**:
+   - Choose initial parameters (percentages) in multiples of 5 (e.g., `p1_pct = [30, 35, 40, 45, 50]` and `p2_pct = [60, 65, 70, 75, 80]`) so that total probability calculations ($P(B) = P(A)P(B|A) + P(\overline{A})P(B|\overline{A})$) resolve to exact, terminating decimals.
+2. **Plausible Distractors (Wrong Statements)**:
+   - Construct distractors by shifting the correct values by a fixed offset (e.g. `+ 0.1` or `- 0.15`).
+   - Validate inside the `while True` loop that distractors are strictly distinct from the correct probabilities (`P_B_nhieu != P_B`) to prevent overlapping answers.
+3. **Quotation Mark Escaping**:
+   - Use `\\lq\\lq` and `\\rq\\rq` when declaring event text strings (e.g., `\\lq\\lq Người được chọn bị bệnh tiểu đường\\rq\\rq`) to ensure correct LaTeX quotation marks.
+
 ## False Statement Design
 
 Good false statements are close mistakes:

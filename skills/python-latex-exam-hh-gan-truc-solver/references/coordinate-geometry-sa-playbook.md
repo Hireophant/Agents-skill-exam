@@ -97,3 +97,17 @@ For practical problems, prefer moderate numbers over dramatic values unless the 
 - Use `tinh_latex` for Sympy expressions and direct strings for final display values.
 - Build helper functions for repeated formatting such as money, coordinates, or degree-minute parsing.
 - Run sample generation after edits and inspect the generated `.tex`.
+
+## Lessons from KTL4.py (HH254SA014)
+
+When generating Oxyz coordinate geometry short answer questions involving movement vectors (e.g., tunnel drilling towards a meetup point $E$):
+1. **Collinear Motion & Coordinate Ratios**:
+   - Define exact integer vector direction candidates `AB_dirs` (lengths like 3, 9, 6) to ensure the first path length is an integer.
+   - Solve for meeting point coordinates $E$ based on the vector ratio $k = AE / AB$.
+   - Format coordinates dynamically to avoid `+ -` sign issues in f-strings: `x_E_expr = f"{xA} - {abs(k * dx1)}" if k * dx1 < 0 else f"{xA} + {k * dx1}"`.
+2. **Non-collinear Vector Search Spaces**:
+   - Programmatically search for the second starting point $C$ using direction candidates `CE` that are not collinear with $AB$ (cross product `cross_x != 0 or cross_y != 0 or cross_z != 0`).
+   - Validate that the computed velocity $v_2 = (L_2 \times 100) / t$ is an exact integer in a realistic range (e.g. `3 <= v2 <= 30` and `v2 != v1`).
+3. **Mountain and Tunnel TikZ Diagram**:
+   - Use bezier curves to draw illustrative backgrounds (e.g. `\draw[fill=gray!8] (-0.5,-0.5) to[out=30,in=150] (2.2,2.5) ...`), dashed lines for tunnels (`line width=2.5pt, dashed`), and coordinate vectors with arrows (`\draw[->, ultra thick]`) to help students visualize Oxyz real-world problems.
+
