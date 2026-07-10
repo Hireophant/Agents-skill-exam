@@ -127,3 +127,14 @@ When implementing applied optimization question generators:
    - `\textcolor{blue}{\textbf{\ding{174} Giải phương trình đạo hàm tìm cực trị}}\\`
    - `\textcolor{blue}{\textbf{\ding{175} Kết luận, so sánh với điều kiện}}\\`
 
+## Lessons from KTL4.py (GT223SA011, GT224SA005)
+
+When generating Calculus/Analysis short answer questions involving cooling models or piecewise integration:
+1. **Cooling/Decay Model Decimal Precision**:
+   - For temperature decay models ($f(t) = A_0 \cdot \left(\dfrac{a}{b}\right)^t$): Choose initial temperature $A_0$ and ratio $\dfrac{a}{b}$ (from exact terminating decimals such as `(4, 5)`, `(3, 4)`, `(7, 10)`, `(9, 10)`) and integer hours $t_1, t_2 = t_1 + 1$ to guarantee that intermediate temperatures $T_1, T_2$ are terminating decimals (validated via `abs(T - T_rounded) < 1e-9`).
+2. **Piecewise Integration Continuity**:
+   - For piecewise functions representing continuous physical quantities (e.g., solar energy $E(t)$ over a day), enforce mathematical continuity at boundary points (e.g. at $t=9$ and $t=15$) by dynamically calculating constants (e.g., $D_2 = 3 C_1 + D_1$ and $D_3 = 36 C_2 + D_2$) in the generator loop.
+3. **Photosynthesis Process TikZ Diagram**:
+   - Draw clean, colorful diagrams representing biological processes (e.g. green leaves, yellow light arrows, gray CO2, blue O2) with readable tiny labels (`\node[font=\tiny\bfseries]`) to visually support real-world word problems.
+
+
